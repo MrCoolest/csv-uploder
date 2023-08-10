@@ -1,0 +1,130 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    /* height:100vh; */
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    font-family:'Poppins',sans-serif;
+}
+.tableData{
+    margin:3rem auto;
+    background-color: #1cdad3;
+    width:95%;
+    padding:1rem;
+    border-radius:1rem;
+}
+/* table{
+    width:95%;
+} */
+thead{
+    padding:.7rem;
+    color:white;
+}
+th{
+    font-size:1.3rem;
+}
+td{
+    font-size:1.1rem;
+    background-color: white;
+    padding:.3rem;
+    /* border-radius: .5rem; */
+    font-weight:bold;
+}
+.outerContainer{
+    width:95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container{
+    margin:3rem 0;
+}
+input[type="text"]{
+    padding:1rem 1.5rem;
+    width:300px;
+    margin-right:1rem;
+    font-size:1.7rem;
+    transition: all .2s ease-in-out;
+}
+input[type="text"]:focus{
+    border-radius: 2rem;
+    background-color: #1cdad3;
+    color:white;
+    outline-color: white;
+}
+input[type="text"]:focus::placeholder{
+    color:white;
+}
+.searchButton{
+    padding:1rem 1.5rem;
+    font-size:1.7rem;
+    background-color: #1cdad3;
+    color:white;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+.searchButton:hover{
+    border-radius:2rem;
+}
+/* .heading{
+    margin-top:4rem;
+
+} */
+
+.home{
+    background-color: #1cdad3;
+    padding:.3rem .7rem;
+    border-radius:.5rem;
+}
+.name{
+    color:#1cdad3;
+    font-size:1.8rem;
+}
+a{
+    color:white;
+    text-decoration: none;
+}
+.houseBtni{
+    margin-right:10px;
+}
+#sortButton{
+    background-color: transparent;
+    font-size:1.2rem;
+    border:none;
+    cursor: pointer;
+}
+#select{
+    padding:1rem 1.5rem;
+    font-size:1.7rem;
+    /* background-; */
+}
+
+.paginationContainer{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    margin:0rem 0 5rem 0;
+}
+.paginationLink{
+    background-color: #1cdad3;
+    color:white;
+    font-weight: bold;
+    font-size:1.4rem;
+    padding:.4rem .8rem;
+    margin:0 .5rem;
+    border-radius:.2rem;
+    transition: all .2s ease-in-out;
+}
+.paginationLink:hover{
+    transform: scale(1.05);
+}
+.prev{
+    display:none;
+}
+.next{
+    display:none;
+}

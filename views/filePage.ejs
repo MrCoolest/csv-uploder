@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Tab icon -->
+    <link rel="icon" type="image/x-icon" href="/images/tabIcon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- title %></title>
+    <!-- Importing fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Importing css file -->
+    <link rel="stylesheet" href="/css/filePage.css" />
+    <!-- Importing google fonts(poppins) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="outerContainer">
+      <h1 class="home">
+        <a href="/"
+          ><i class="fa-solid fa-house houseBtni" style="color: #ffffff"></i
+          >Home</a
+        >
+      </h1>
+      <h1 class="heading">File: <span class="name"><%- fileName %></span></h1>
+
+      <div class="container">
+        <select name="" id="select">
+          <!-- Loop to print all the columns heading in a dropdown -->
+          <% head.forEach((h)=>{ %>
+          <option value="<%- h %>"><%-h%></option>
+          <% }) %>
+        </select>
+        <input type="text" placeholder="Search..." id="searchBar" />
+        <button id="searchButton" class="searchButton">Search</button>
+      </div>
+    </div>
+    <div class="tableData">
+      <table id="mainTable">
+        <thead>
+          <tr>
+            <!-- Looping for all the headers with the sort button -->
+            <% for(let [index,h] of head.entries()) { %>
+            <th>
+              <%= h %>
+            </th>
+            <% } %>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- looping to print all the rows data -->
+          <% for(let row of data) { %>
+          <tr>
+            <% for(let key of Object.keys(row)) { %>
+            <td><%= row[key] %></td>
+            <% } %>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination Part -->
+    <div class="paginationContainer">
+      <a id="prev" class="paginationLink prev" href="/filePage/<%-fileId%>/"
+        >&lt; Prev</a
+      >
+      <a
+        id="current"
+        class="paginationLink current"
+        href="/filePage/<%-fileId%>"
+        >1</a
+      >
+      <a id="next" class="paginationLink next" href="/filePage/<%-fileId%>"
+        >Next &gt;</a
+      >
+    </div>
+
+    <!-- Passing data to the js file using the input element -->
+    <input
+      type="hidden"
+      id="dataFromFilePage"
+      value="<%= JSON.stringify(data)%>"
+    />
+    <input
+      type="hidden"
+      id="fullDataFromFilePage"
+      value="<%= JSON.stringify(fullData)%>"
+    />
+    <input type="hidden" id="fileId" value="<%= JSON.stringify(fileId)%>" />
+    <input type="hidden" id="pageNumber" value="<%= JSON.stringify(page)%>" />
+  </body>
+  <script src="/js/filePage.js"></script>
+</html>
